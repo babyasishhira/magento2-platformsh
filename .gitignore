@@ -1,0 +1,13 @@
+var/*
+!var/.htaccess
+
+pub/media/*
+!pub/media/customer/.htaccess
+!pub/media/downloadable/.htaccess
+!pub/media/import/.htaccess
+!pub/media/theme_customization/.htaccess
+!pub/media/.htaccess
+
+app/etc/*
+
+.DS_Store
