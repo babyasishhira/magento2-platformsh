@@ -1,0 +1,32 @@
+name: magento2demo
+type: php:5.6
+build:
+    flavor: composer
+relationships:
+    database: "mysql:mysql"
+    redis: "redis:redis"
+runtime:
+    extensions:
+        - redis
+        - xsl
+        - json
+web:
+    document_root: "/"
+    passthru: "/index.php"
+mounts:
+    "/public/pub/media": "shared:files/media"
+    "/public/pub/static": "shared:files/static"
+    "/public/pub/opt/magento/var": "shared:files/opt-var"
+    "/public/var": "shared:files/var"
+    "/public/app/etc": "shared:files/etc"
+disk: 2048
+crons:
+    cronrun:
+        spec: "*/1 * * * *"
+        cmd: "public/bin/magento cron:run"
+    cron:
+        spec: "*/1 * * * *"
+        cmd: "public/update/cron.php"
+    cronsetup:
+        spec: "*/1 * * * *"
+        cmd: "public/bin/magento setup:cron:run"
