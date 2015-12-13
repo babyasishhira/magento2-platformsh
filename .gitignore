@@ -9,5 +9,8 @@ pub/media/*
 !pub/media/.htaccess
 
 app/etc/*
+!app/etc/di.xml
+!app/etc/NonComposerComponentRegistration.php
+!app/etc/vendor_path.php
 
 .DS_Store
